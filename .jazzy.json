@@ -7,11 +7,11 @@
    ],
    "author":"Gini GmbH",
    "author_url":"https://gini.net",
-   "module":"GiniPayBusiness",
+   "module":"GiniHealth",
    "readme":"Documentation/Sections/Documentation.md",
    "theme": "Documentation/jazzy-theme/",
    "output":"Documentation/Api",
-   "github_url":"https://github.com/gini/gini-pay-business-sdk-ios.git",
+   "github_url":"https://github.com/gini/gini-health-sdk-ios.git",
    "hide_documentation_coverage":"true",
 
    "documentation":"Documentation/source/*.md",

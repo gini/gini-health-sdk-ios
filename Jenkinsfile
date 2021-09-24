@@ -54,7 +54,7 @@ pipeline {
       }
 
       steps {
-        sh '/usr/local/bin/pod lib lint GiniPayBusiness.podspec --sources=https://github.com/gini/gini-podspecs.git,https://github.com/CocoaPods/Specs.git --allow-warnings'
+        sh '/usr/local/bin/pod lib lint GiniHealth.podspec --sources=https://github.com/gini/gini-podspecs.git,https://github.com/CocoaPods/Specs.git --allow-warnings'
       }
     }
     stage('Release Pod') {
@@ -66,7 +66,7 @@ pipeline {
         }
       }
       steps {
-        sh '/usr/local/bin/pod repo push gini-specs GiniPayBusiness.podspec --sources=https://github.com/gini/gini-podspecs.git,https://github.com/CocoaPods/Specs.git --allow-warnings'
+        sh '/usr/local/bin/pod repo push gini-specs GiniHealth.podspec --sources=https://github.com/gini/gini-podspecs.git,https://github.com/CocoaPods/Specs.git --allow-warnings'
       }
     }
   }

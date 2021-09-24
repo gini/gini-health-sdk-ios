@@ -21,7 +21,7 @@ We are providing example app for Swift. This app demonstrates how to integrate t
 
 An example banking app is available in the [Gini Pay Bank SDK's](https://github.com/gini/gini-pay-bank-sdk-ios) repository.
 To check the redirection to the Banking app please run Bank example before Example Swift. You can use the same Gini Pay API client credentials in the example banking app as in your app, if not otherwise specified.
-To inject your API credentials into the Business and Bank example apps you need to fill in your credentials in `Example/Example Swift/Credentials.plist` and `Example/Bank/Credentials.plist`, respectively.
+To inject your API credentials into the Health and Bank example apps you need to fill in your credentials in `Example/Example Swift/Credentials.plist` and `Example/Bank/Credentials.plist`, respectively.
 
 ## Requirements
 

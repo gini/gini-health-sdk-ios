@@ -1,9 +1,9 @@
 Integration
 =============================
 
-Gini Pay provides an information extraction system for analyzing business invoices and transfers them to the iOS banking app, where the payment process will be completed.
+Gini Health provides an information extraction system for analyzing business invoices and transfers them to the iOS banking app, where the payment process will be completed.
 
-The Gini Pay Business SDK for iOS provides functionality to upload the multipage documents with mobile phones, accurate line item extraction enables the user to to pay the invoice with prefferable payment provider. 
+The Gini Health SDK for iOS provides functionality to upload the multipage documents with mobile phones, accurate line item extraction enables the user to to pay the invoice with prefferable payment provider. 
 
 **Note** For supporting each payment provider you need to specify `LSApplicationQueriesSchemes` in your `Info.plist` file. App schemes for specification will be provided by Gini.
 
@@ -42,17 +42,17 @@ Optionally if you want to use _Certificate pinning_, provide metadata for the up
 > ⚠️  **Important**
 > - The document metadata for the upload process is intended to be used for reporting.
 
-## GiniPayBusiness initialization
+## GiniHealth initialization
 
-Now that the `GiniApiLib` has been initialized, you can initialize `GiniPayBusiness`
+Now that the `GiniApiLib` has been initialized, you can initialize `GiniHealth`
 
 ```swift
- let businessSDK = GiniPayBusiness(with: giniApiLib)
+ let healthSDK = GiniHealth(with: giniApiLib)
 ```
-and upload your document if you plan to do it with `GiniPayBusiness`. First you need get document service and create partial document.
+and upload your document if you plan to do it with `GiniHealth`. First you need get document service and create partial document.
 
 ```swift
-let documentService: DefaultDocumentService = businessSDK.documentService()
+let documentService: DefaultDocumentService = healthSDK.documentService()
 documentService.createDocument(fileName:"ginipay-partial",
                                docType: nil,
                                type: .partial(documentData),
@@ -64,7 +64,7 @@ After receiving the partial document in completion you can get actual composite 
 
 ```swift
 let partialDocs = [PartialDocumentInfo(document: createdDocument.links.document)]
- self.businessSDK.documentService
+ self.healthSDK.documentService
             .createDocument(fileName: "ginipay-composite",
                             docType: nil,
                             type: .composite(CompositeDocumentInfo(partialDocuments: partialDocs)),
@@ -74,39 +74,39 @@ let partialDocs = [PartialDocumentInfo(document: createdDocument.links.document)
 
 ##  Check preconditions
 
-There are three methods in GiniPayBusiness:
+There are three methods in GiniHealth:
 
-* `businessSDK.isAnyBankingAppInstalled(appSchemes: [String])` without a networking call, returns true when at least the one of the listed among `LSApplicationQueriesSchemes` in your `Info.plist` is installed on the device and can support Gini Pay functionality,
-* `businessSDK.checkIfAnyPaymentProviderAvailiable()` with a networking call, returns a list of availible payment provider or informs that there are no supported banking apps installed,
-* `businessSDK.checkIfDocumentIsPayable(docId: String)` returns true if Iban was extracted.
+* `healthSDK.isAnyBankingAppInstalled(appSchemes: [String])` without a networking call, returns true when at least the one of the listed among `LSApplicationQueriesSchemes` in your `Info.plist` is installed on the device and can support Gini Pay functionality,
+* `healthSDK.checkIfAnyPaymentProviderAvailiable()` with a networking call, returns a list of availible payment provider or informs that there are no supported banking apps installed,
+* `healthSDK.checkIfDocumentIsPayable(docId: String)` returns true if Iban was extracted.
 
 ## Fetching data for payment review screen
 
 If the preconditions checks are succeeded you can fetch the document and extractions for Payment Review screen:
 
 ```swift
-businessSDK.fetchDataForReview(documentId: documentId,
-                              completion: @escaping (Result<DataForReview, GiniPayBusinessError>) -> Void)
+healthSDK.fetchDataForReview(documentId: documentId,
+                              completion: @escaping (Result<DataForReview, GiniHealthError>) -> Void)
 ```
 The method above returns the completion block with the struct `DataForReview`, which includes document and extractions.
 
 ## Payment review screen initialization
 
 ```swift
-let vc = PaymentReviewViewController.instantiate(with giniPayBusiness: businessSDK,
+let vc = PaymentReviewViewController.instantiate(with giniHealth: healthSDK,
                                                  data: dataForReview)
 ```
 The screen can be presented modally, used in a container view or pushed to a navigation view controller. Make sure to add your own navigational elements around the provided views.
 
-To also use the `GiniPayBusinessConfiguration`:
+To also use the `GiniHealthConfiguration`:
 
 ```swift
-let giniConfiguration = GiniPayBusinessConfiguration()
+let giniConfiguration = GiniHealthConfiguration()
 config.loadingIndicatorColor = .black
 .
 .
 .
-businessSDK.setConfiguration(config)
+healthSDK.setConfiguration(config)
 ```
 ## Gini Pay Deep Link For Your App
 
@@ -114,7 +114,7 @@ In order for banking apps to be able to return the user to your app after the pa
 
 You should already have a scheme and host from us. Please contact us in case you don't have them.
 
-The following is an example for the deep link ginipay-business://payment-requester:
+The following is an example for the deep link gini-health://payment-requester:
 <br>
 <center><img src="img/Integration guide/SchemeExample.png" width="600"/></center>
 </br>
@@ -123,14 +123,14 @@ The following is an example for the deep link ginipay-business://payment-request
 An example banking app is available in the [Gini Pay Bank SDK's](https://github.com/gini/gini-pay-bank-sdk-ios) repository.
 
 In order to test using our example banking app you need to use development client credentials. This will make sure
-the Gini Pay Business SDK uses a test payment provider which will open our example banking app. To inject your API credentials into the Bank example app you need to fill in your credentials in `Example/Bank/Credentials.plist`.
+the Gini Health SDK uses a test payment provider which will open our example banking app. To inject your API credentials into the Bank example app you need to fill in your credentials in `Example/Bank/Credentials.plist`.
 
 #### End to end testing
 
 The app scheme in our banking example app: `ginipay-bank://`. Please, specify this scheme `LSApplicationQueriesSchemes` in your app in `Info.plist` file.
 
 After you've set the client credentials in the example banking app and installed it on your device you can run your app
-and verify that `businessSDK.isAnyBankingAppInstalled(appSchemes: [String])` returns true and check other preconditions.
+and verify that `healthtSDK.isAnyBankingAppInstalled(appSchemes: [String])` returns true and check other preconditions.
 
 After following the integration steps above you'll arrive at the payment review screen.
 
@@ -153,7 +153,7 @@ After you press the `Pay` button the Gini Pay Bank SDK resolves the payment and 
 </br>
 
 For handling incoming url in your app after redirecting back from the banking app you need to implement to handle the incoming url:
-The following is an example for the url `ginipay-business://payment-requester`:
+The following is an example for the url `gini-health://payment-requester`:
 
 ```swift
     func application(_ app: UIApplication,
@@ -166,16 +166,16 @@ The following is an example for the url `ginipay-business://payment-requester`:
     }
 ```
 
-With these steps completed you have verified that your app, the Gini Pay API, the Gini Pay Business SDK and the Gini Pay
+With these steps completed you have verified that your app, the Gini Pay API, the Gini Health SDK and the Gini Pay
 Bank SDK work together correctly.
 
 #### Testing in production
 
 The steps are the same but instead of the development client credentials you will need to use production client
-credentials. This will make sure the Gini Pay Business SDK receives real payment providers which open real banking apps.
+credentials. This will make sure the Gini Healthh SDK receives real payment providers which open real banking apps.
 
 You will also need to install a banking app which uses the Gini Pay Bank SDK. Please contact us in case you don't know
 which banking app(s) to install.
 
 Lastly make sure that for production you register the scheme we provided you for deep linking and you are not using 
-`ginipay-business://payment-requester`.
+`gini-health://payment-requester`.

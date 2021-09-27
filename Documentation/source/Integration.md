@@ -1,7 +1,7 @@
 Integration
 =============================
 
-Gini Health provides an information extraction system for analyzing business invoices and transfers them to the iOS banking app, where the payment process will be completed.
+The Gini Health SDK for iOS provides all the UI and functionality needed to use the Gini Pay API in your app to extract payment and health information from invoices. The payment information can be reviewed and then the invoice can be paid using any available payment provider app (e.g., banking app).
 
 The Gini Health SDK for iOS provides functionality to upload the multipage documents with mobile phones, accurate line item extraction enables the user to to pay the invoice with prefferable payment provider. 
 

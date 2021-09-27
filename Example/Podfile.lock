@@ -2,12 +2,12 @@ PODS:
   - GiniCapture (1.0.7):
     - GiniCapture/Core (= 1.0.7)
   - GiniCapture/Core (1.0.7)
-  - GiniHealth (0.0.1):
-    - GiniHealth/Core (= 0.0.1)
-  - GiniHealth/Core (0.0.1):
+  - GiniHealth (1.0.0-doc1):
+    - GiniHealth/Core (= 1.0.0-doc1)
+  - GiniHealth/Core (1.0.0-doc1):
     - GiniPayApiLib/DocumentsAPI (>= 1.0.3)
     - GiniPayApiLib/Pinning (>= 1.0.3)
-  - GiniHealth/Tests (0.0.1)
+  - GiniHealth/Tests (1.0.0-doc1)
   - GiniPayApiLib/DocumentsAPI (1.0.10)
   - GiniPayApiLib/Pinning (1.0.10):
     - GiniPayApiLib/DocumentsAPI
@@ -32,7 +32,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   GiniCapture: e010682389214026896786ba714c730e5cb8c0a6
-  GiniHealth: f35f2efbfbe1f67aa739cd65cf1745346b2be695
+  GiniHealth: 96f66a2c1454d27995cff8abbb3a86bc7a180d47
   GiniPayApiLib: 79595a29253b58ce6f95009f8a334fb7a09e9ef3
   TrustKit: 073855e3adecd317417bda4ac9e9ac54a2e3b9f2
 

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'GiniHealth'
-  s.version          = '0.0.1'
+  s.version          = '1.0.0-doc1'
   s.summary          = 'Computer Vision Library for scanning documents.'
 
   s.description      =  <<-DESC

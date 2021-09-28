@@ -8,7 +8,7 @@
 
 import UIKit
 import GiniCapture
-import GiniPayBusiness
+import GiniHealth
 
 protocol SelectAPIViewControllerDelegate: AnyObject {
     func selectAPI(viewController: SelectAPIViewController, didSelectApi api: GiniCaptureAPIType)

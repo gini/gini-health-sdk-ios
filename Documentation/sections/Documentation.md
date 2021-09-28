@@ -1,23 +1,23 @@
-![Gini Pay Business SDK for iOS](img/GiniPayBusiness_Logo.png?raw=true)
+![Gini Health SDK for iOS](img/GiniHealth_Logo.png?raw=true)
 
-# Gini Pay Business SDK for iOS
+# Gini Health SDK for iOS
 
 [![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)]()
 [![Devices](https://img.shields.io/badge/devices-iPhone%20%7C%20iPad-blue.svg)]()
 [![Swift version](https://img.shields.io/badge/swift-5.0-orange.svg)]()
 
 
-The Gini Pay Business SDK provides components for uploading, reviewing and analyzing photos of invoices and remittance slips.
+The Gini Health SDK provides components for uploading, reviewing and analyzing photos of invoices and remittance slips.
 
 By integrating this SDK into your application you can allow your users to easily upload a picture of a document, review it and get analysis results from the Gini backend, create a payment and send it to the prefferable payment provider.
 
 ## Documentation
 
-Further documentation with installation, integration or customization guides can be found in our [website](http://developer.gini.net/gini-pay-business-sdk-ios/docs/).
+Further documentation with installation, integration or customization guides can be found in our [website](http://developer.gini.net/gini-health-sdk-ios/docs/).
 
 ## Example apps
 
-We are providing an example business app for Swift. This app demonstrates how to integrate the Gini Pay Business SDK with the Component API of Gini Capture library. To run the example project, clone the repo and run `pod install` from the Example directory first. The credentials for the Business example need to be set in `Example Swift/Credentials.plist`.
+We are providing an example health app for Swift. This app demonstrates how to integrate the Gini Health SDK with the Component API of Gini Capture library. To run the example project, clone the repo and run `pod install` from the Example directory first. The credentials for the Health example need to be set in `Example Swift/Credentials.plist`.
 
 An example banking app is available in the [Gini Pay Bank SDK's](https://github.com/gini/gini-pay-bank-sdk-ios) repository.
 To check the redirection to the Banking app please run Bank example before Example Swift. You can use the same Gini Pay API client credentials in the example banking app as in your app, if not otherwise specified. To inject your API credentials into the example banking app you need to fill in your credentials in `Example/Bank/Credentials.plist`.
@@ -39,6 +39,6 @@ Gini GmbH, hello@gini.net
 
 ## License
 
-The Gini Pay Business SDK for iOS is licensed under a Private License. See [the license](http://developer.gini.net/gini-pay-business-sdk-ios/docs/license.html) for more info.
+The Gini Health SDK for iOS is licensed under a Private License. See [the license](http://developer.gini.net/gini-health-sdk-ios/docs/license.html) for more info.
 
 **Important:** Always make sure to ship all license notices and permissions with your application.

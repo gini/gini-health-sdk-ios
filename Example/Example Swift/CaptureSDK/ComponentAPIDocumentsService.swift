@@ -8,7 +8,7 @@
 import UIKit
 import GiniCapture
 import GiniPayApiLib
-import GiniPayBusiness
+import GiniHealth
 
 final class ComponentAPIDocumentsService: ComponentAPIDocumentServiceProtocol {
     

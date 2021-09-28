@@ -9,5 +9,5 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o -z "$TRAVIS_TAG" ]; then
 fi
 
 pod repo add gini-specs git@github.com:gini/gini-podspecs.git
-pod repo push gini-specs ./GiniPayBusiness.podspec
+pod repo push gini-specs ./GiniHealth.podspec
 

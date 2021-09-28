@@ -8,7 +8,7 @@
 import Foundation
 import GiniCapture
 import GiniPayApiLib
-import GiniPayBusiness
+import GiniHealth
 
 enum CustomAnalysisError: GiniCaptureError {
     case analysisFailed

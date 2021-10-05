@@ -8,7 +8,7 @@ github_password=$2
 
 cd Documentation/
 rm -rf gh-pages
-git clone -b gh-pages https://"$github_user":"$github_password"@github.com/gini/gini-pay-business-sdk-ios.git gh-pages
+git clone -b gh-pages https://"$github_user":"$github_password"@github.com/gini/gini-health-sdk-ios.git gh-pages
 
 rm -rf gh-pages/*
 mkdir gh-pages/docs
@@ -18,7 +18,7 @@ cd gh-pages
 touch .nojekyll
 
 git add .
-git commit -a -m 'Updated Gini Pay Business SDK documentation'
+git commit -a -m 'Updated Gini Health SDK documentation'
 git push
 
 cd ..
